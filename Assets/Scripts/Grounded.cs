@@ -20,7 +20,7 @@ public class Grounded : MonoBehaviour
     {
         if (GetComponent<Collider>().tag ==("Ground"))
         {
-            Player.GetComponent<Move2D>().isGrounded = true;
+            Player.GetComponent<DashScript>().isGrounded = true;
 
         }
     }
@@ -29,11 +29,7 @@ public class Grounded : MonoBehaviour
     {
         if (GetComponent<Collider>().tag == ("Ground"))
         {
-            if (GetComponent<Collider>().tag == ("Ground"))
-            {
-                Player.GetComponent<Move2D>().isGrounded = false;
-
-            }
+            Player.GetComponent<DashScript>().isGrounded = false;
 
         }
     }
