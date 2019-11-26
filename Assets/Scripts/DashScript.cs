@@ -9,7 +9,7 @@ public class DashScript : MonoBehaviour
     private float dashTime;
     public float startDashTime;
     private int direction;
-    public bool isGrounded = false;
+    private static bool GroundCheck;
 
     void Start()
     {
@@ -25,9 +25,11 @@ public class DashScript : MonoBehaviour
 
     void Update()
     {
+        GroundCheck = GroundedCheck.GroundCheck;
+
         if (direction == 0) 
         {
-            if (Input.GetKeyDown(KeyCode.A))
+            if (Input.GetKeyDown(KeyCode.A) & GroundCheck == true)
             {
              direction = 1;
             } 
@@ -58,7 +60,7 @@ public class DashScript : MonoBehaviour
             else
             {
                 dashTime -= Time.deltaTime;
-                if(direction == 1 & isGrounded == true)
+                if(direction == 1)
                 {
                     rb.velocity = Vector2.left * dashSpeed;
                 } 
