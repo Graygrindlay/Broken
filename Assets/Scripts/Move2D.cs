@@ -10,14 +10,14 @@ public class Move2D : MonoBehaviour
     
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"),0 ,0);
 
         transform.position += movement * Time.deltaTime * movespeed;
 
-
+        
 
     }
 
