@@ -28,6 +28,9 @@ public class DashScript : MonoBehaviour
 
     void Update()
     {
+
+        _ = Physics.gravity.y * 2;
+
         GroundCheck = GroundedCheck.GroundCheck;
 
         if (direction == 0) 
@@ -72,7 +75,7 @@ public class DashScript : MonoBehaviour
                 dashTime -= Time.deltaTime;
                 if(direction == 1)
                 {
-                    rb.velocity = Vector2.left * dashSpeed;
+                   rb.velocity = Vector2.left * dashSpeed;
                 } 
                 else if (direction == 2)
                 {
