@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
-
+using System.Threading;
 
 public class DashScript : MonoBehaviour
 {
@@ -100,6 +99,9 @@ public class DashScript : MonoBehaviour
         if (GroundCheck == true)
         {
             hasDashed = false;
+            
+
+
         }    
     
     
