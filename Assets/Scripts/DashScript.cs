@@ -13,7 +13,7 @@ public class DashScript : MonoBehaviour
     public bool hasDashed;
     public float duration = .15f;
     public float magnitude = .4f;
-    public cameraShake cameraShake;
+    public GameObject cameraShake;
 
 
     void Start()
@@ -101,7 +101,7 @@ public class DashScript : MonoBehaviour
                 }
                 else if (direction == 5)
                 {
-                    rb.velocity = Vector2.up + Vector2.right * dashSpeed;
+                    rb.velocity = Vector2.right * dashSpeed;
 
                 }
 
