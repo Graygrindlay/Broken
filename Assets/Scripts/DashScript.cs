@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
 
 public class DashScript : MonoBehaviour
 {
@@ -12,7 +11,10 @@ public class DashScript : MonoBehaviour
     private int direction;
     private static bool GroundCheck;
     public bool hasDashed;
-    
+    public float duration = .15f;
+    public float magnitude = .4f;
+    public cameraShake cameraShake;
+
 
     void Start()
     {
@@ -29,36 +31,44 @@ public class DashScript : MonoBehaviour
     void Update()
     {
 
-        _ = Physics.gravity.y * 2;
+        
 
         GroundCheck = GroundedCheck.GroundCheck;
 
         if (direction == 0) 
         {
-            if (Input.GetKey(KeyCode.A) & Input.GetKey(KeyCode.Space) & hasDashed == false)
+            if (Input.GetKey(KeyCode.A) & Input.GetKeyDown(KeyCode.Space) & hasDashed == false)
              
             {
              direction = 1;
-             hasDashed = true;               
-            
+                hasDashed = true;
+                StartCoroutine(cameraShake.Shake(0.15f,0.4f));
+             
+                           
+                         
             } 
-            else if (Input.GetKey(KeyCode.D) & Input.GetKey(KeyCode.Space) & hasDashed == false)
+            else if (Input.GetKey(KeyCode.D) & Input.GetKeyDown(KeyCode.Space) & hasDashed == false)
             {
             direction = 2;
             hasDashed = true;
             }
-            else if (Input.GetKey(KeyCode.W) & Input.GetKey(KeyCode.Space) & hasDashed == false)
+            else if (Input.GetKey(KeyCode.W) & Input.GetKeyDown(KeyCode.Space) & hasDashed == false)
             {
             direction = 3;
             hasDashed = true;
             }
-            else if (Input.GetKey(KeyCode.S) & Input.GetKey(KeyCode.Space) & hasDashed == false)
+            else if (Input.GetKey(KeyCode.S) & Input.GetKeyDown(KeyCode.Space) & hasDashed == false)
             {
             direction = 4;
             hasDashed = true;
             
             }
+            else if (Input.GetKey(KeyCode.D) & (Input.GetKey(KeyCode.W) & Input.GetKeyDown(KeyCode.Space) & hasDashed == false))
+            {
+                direction = 5;
+                hasDashed = true;
 
+            }
 
 
         }
@@ -88,6 +98,11 @@ public class DashScript : MonoBehaviour
                 else if (direction == 4)
                 {
                 rb.velocity = Vector2.down * dashSpeed;
+                }
+                else if (direction == 5)
+                {
+                    rb.velocity = Vector2.up + Vector2.right * dashSpeed;
+
                 }
 
 

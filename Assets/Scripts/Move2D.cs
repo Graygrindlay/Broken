@@ -10,10 +10,24 @@ public class Move2D : MonoBehaviour
     public float moveSpeed = 5f;
     public float runSpeed = 10f;
 
+    public float fallMultiplier = 2.5f;
+
+    private bool facingRight;
+
     // Update is called once per frame
+    Rigidbody2D rb;
+
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        facingRight = false;
+
+    }
     void FixedUpdate()
     {
         
+
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"),0 ,0);
 
         transform.position += movement * Time.deltaTime * tempMoveSpeed;
@@ -30,9 +44,31 @@ public class Move2D : MonoBehaviour
 
         }
 
+        if (rb.velocity.y < 0)
+        {
+            rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
+
+        }
+
+        float horizontal = Input.GetAxis("Horizontal");
+        Flip(horizontal);
+
     }
 
-   
+    public void Flip(float horizontal)
+    {
 
+        if (horizontal > 0 && !facingRight || horizontal < 0 && facingRight)
+        {
+            facingRight = !facingRight;
+
+            Vector2 theScale = transform.localScale;
+
+            theScale.x *= -1;
+
+            transform.localScale = theScale;
+        }
+
+    }
 
 }
