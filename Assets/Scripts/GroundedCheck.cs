@@ -10,14 +10,14 @@ public class GroundedCheck : MonoBehaviour
     void OnCollisionStay2D(Collision2D collider)
     {
         CheckIfGrounded();
-        Debug.Log(GroundCheck);
+        
     }
 
     void OnCollisionExit2D(Collision2D collider)
     {
         GroundCheck = false;
 
-        Debug.Log(GroundCheck);
+        
     }
 
     private void CheckIfGrounded()

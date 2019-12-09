@@ -42,7 +42,7 @@ public class DashScript : MonoBehaviour
             {
              direction = 1;
                 hasDashed = true;
-                StartCoroutine(cameraShake.Shake(0.15f,0.4f));
+                
              
                            
                          
@@ -63,8 +63,9 @@ public class DashScript : MonoBehaviour
             hasDashed = true;
             
             }
-            else if (Input.GetKey(KeyCode.D) & (Input.GetKey(KeyCode.W) & Input.GetKeyDown(KeyCode.Space) & hasDashed == false))
+            else if (Input.GetKey(KeyCode.D) & (Input.GetKey(KeyCode.W) & Input.GetKey(KeyCode.Space) & hasDashed == false))
             {
+                Debug.Log("should be diagonal");
                 direction = 5;
                 hasDashed = true;
 
@@ -101,7 +102,9 @@ public class DashScript : MonoBehaviour
                 }
                 else if (direction == 5)
                 {
-                    rb.velocity = Vector2.right * dashSpeed;
+                    rb.AddForce(new Vector2(1,1));
+
+
 
                 }
 
