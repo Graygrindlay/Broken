@@ -14,6 +14,7 @@ public class DashScript : MonoBehaviour
     public float duration = .15f;
     public float magnitude = .4f;
     public GameObject cameraShake;
+    private Vector3 lastMoveDir;
 
 
     void Start()
@@ -27,8 +28,13 @@ public class DashScript : MonoBehaviour
     }
 
 
+    private void Update()
+    {
+        //dash();
+        handleDash();
+    }
 
-    void Update()
+    void dash()
     {
 
         
@@ -125,15 +131,29 @@ public class DashScript : MonoBehaviour
 
         }    
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
     }
+
+   private void handleDash()
+   {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            float dashDistance = 100f;
+            transform.position += lastMoveDir * dashDistance;
+
+        }
+
+
+
+   }
+
+        
+    
+    
+    
+    
+    
+    
+    
+    
 
 }
