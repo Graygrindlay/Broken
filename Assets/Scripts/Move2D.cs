@@ -16,7 +16,7 @@ public class Move2D : MonoBehaviour
 
     // Update is called once per frame
     Rigidbody2D rb;
-
+    public float dashSpeed = 10f;
 
     private void Start()
     {

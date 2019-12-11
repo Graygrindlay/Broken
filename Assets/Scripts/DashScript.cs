@@ -14,9 +14,11 @@ public class DashScript : MonoBehaviour
     public float duration = .15f;
     public float magnitude = .4f;
     public GameObject cameraShake;
-    private Vector3 lastMoveDir;
-
-
+    //private Vector3 lastMoveDir;
+    private bool WDPressed = false;
+    private bool WAPressed = false;
+    private bool SDPressed = false;
+    private bool SAPressed = false;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -30,19 +32,56 @@ public class DashScript : MonoBehaviour
 
     private void Update()
     {
-        //dash();
-        handleDash();
+        dash();
+        //handleDash();
     }
 
     void dash()
     {
+        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D))
+        {
+            WDPressed = true;
+        }
+        else
+        {
+            WDPressed = false;
+        }
 
-        
+        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A))
+        {
+            WAPressed = true;
+        }
+        else
+        {
+            WAPressed = false;
+        }
+
+
+
+
+
 
         GroundCheck = GroundedCheck.GroundCheck;
 
-        if (direction == 0) 
+        if (direction == 0)
         {
+
+            if (WDPressed & Input.GetKeyDown(KeyCode.Space) & hasDashed == false)
+            {
+                direction = 5;
+                hasDashed = true;
+
+            }
+            else if (WAPressed & Input.GetKeyDown(KeyCode.Space) & hasDashed == false)
+            {
+                direction = 6;
+                hasDashed = true;
+
+            }
+
+
+
+
             if (Input.GetKey(KeyCode.A) & Input.GetKeyDown(KeyCode.Space) & hasDashed == false)
              
             {
@@ -69,13 +108,8 @@ public class DashScript : MonoBehaviour
             hasDashed = true;
             
             }
-            else if (Input.GetKey(KeyCode.D) & (Input.GetKey(KeyCode.W) & Input.GetKey(KeyCode.Space) & hasDashed == false))
-            {
-                Debug.Log("should be diagonal");
-                direction = 5;
-                hasDashed = true;
-
-            }
+            
+           
 
 
         }
@@ -92,25 +126,34 @@ public class DashScript : MonoBehaviour
                 dashTime -= Time.deltaTime;
                 if(direction == 1)
                 {
-                   rb.velocity = Vector2.left * dashSpeed;
+                    Vector3 movement = new Vector3(-dashSpeed, 0, 0);
+                    transform.position += movement * Time.deltaTime;
                 } 
                 else if (direction == 2)
                 {
-                rb.velocity = Vector2.right * dashSpeed;
+                    Vector3 movement = new Vector3(dashSpeed, 0, 0);
+                    transform.position += movement * Time.deltaTime;
                 }
                 else if (direction == 3)
                 {
-                rb.velocity = Vector2.up * dashSpeed;
+                    Vector3 movement = new Vector3(0, dashSpeed, 0);
+                    transform.position += movement * Time.deltaTime;
                 }
                 else if (direction == 4)
                 {
-                rb.velocity = Vector2.down * dashSpeed;
+                    Vector3 movement = new Vector3(0, -dashSpeed, 0);
+                    transform.position += movement * Time.deltaTime;
                 }
                 else if (direction == 5)
                 {
-                    rb.AddForce(new Vector2(1,1));
+                    Vector3 movement = new Vector3(dashSpeed, dashSpeed, 0);
+                    transform.position += movement * Time.deltaTime;
 
-
+                }
+                else if (direction == 6)
+                {
+                    Vector3 movement = new Vector3(-dashSpeed, dashSpeed, 0);
+                    transform.position += movement * Time.deltaTime;
 
                 }
 
@@ -135,16 +178,16 @@ public class DashScript : MonoBehaviour
 
    private void handleDash()
    {
-        if (Input.GetKeyDown(KeyCode.Space))
+        
+        if (Input.GetKey(KeyCode.D))
         {
-            float dashDistance = 100f;
-            transform.position += lastMoveDir * dashDistance;
+            Vector3 movement = new Vector3(dashSpeed, 0, 0);
+            transform.position += movement * Time.deltaTime;
 
         }
 
 
-
-   }
+    }
 
         
     
