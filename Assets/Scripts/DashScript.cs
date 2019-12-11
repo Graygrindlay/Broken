@@ -33,11 +33,8 @@ public class DashScript : MonoBehaviour
     private void Update()
     {
         dash();
-        //handleDash();
-    }
 
-    void dash()
-    {
+
         if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D))
         {
             WDPressed = true;
@@ -55,12 +52,10 @@ public class DashScript : MonoBehaviour
         {
             WAPressed = false;
         }
+    }
 
-
-
-
-
-
+    void dash()
+    {
         GroundCheck = GroundedCheck.GroundCheck;
 
         if (direction == 0)
@@ -79,37 +74,29 @@ public class DashScript : MonoBehaviour
 
             }
 
-
-
-
             if (Input.GetKey(KeyCode.A) & Input.GetKeyDown(KeyCode.Space) & hasDashed == false)
-             
             {
-             direction = 1;
+                direction = 1;
                 hasDashed = true;
-                
-             
-                           
-                         
-            } 
+            }
             else if (Input.GetKey(KeyCode.D) & Input.GetKeyDown(KeyCode.Space) & hasDashed == false)
             {
-            direction = 2;
-            hasDashed = true;
+                direction = 2;
+                hasDashed = true;
             }
             else if (Input.GetKey(KeyCode.W) & Input.GetKeyDown(KeyCode.Space) & hasDashed == false)
             {
-            direction = 3;
-            hasDashed = true;
+                direction = 3;
+                hasDashed = true;
             }
             else if (Input.GetKey(KeyCode.S) & Input.GetKeyDown(KeyCode.Space) & hasDashed == false)
             {
-            direction = 4;
-            hasDashed = true;
-            
+                direction = 4;
+                hasDashed = true;
+
             }
-            
-           
+
+
 
 
         }
@@ -176,21 +163,25 @@ public class DashScript : MonoBehaviour
     
     }
 
-   private void handleDash()
-   {
-        
-        if (Input.GetKey(KeyCode.D))
-        {
-            Vector3 movement = new Vector3(dashSpeed, 0, 0);
-            transform.position += movement * Time.deltaTime;
-
-        }
-
-
-    }
+  
 
         
     
+        
+
+
+
+
+
+
+
+
+
+             
+                
+             
+                           
+                         
     
     
     
