@@ -32,17 +32,17 @@ public class Move2D : MonoBehaviour
 
         transform.position += movement * Time.deltaTime * tempMoveSpeed;
 
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            tempMoveSpeed = runSpeed;
+        //if (Input.GetKey(KeyCode.LeftShift))
+        //{
+            //tempMoveSpeed = runSpeed;
 
-        }
+        //}
 
-        if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            tempMoveSpeed = moveSpeed;
+        //if (Input.GetKeyUp(KeyCode.LeftShift))
+        //{
+            //tempMoveSpeed = moveSpeed;
 
-        }
+        //}
 
         if (rb.velocity.y < 0)
         {
