@@ -14,7 +14,6 @@ public class DashScript : MonoBehaviour
     public float duration = .15f;
     public float magnitude = .4f;
     public GameObject cameraShake;
-    //private Vector3 lastMoveDir;
     private bool WDPressed = false;
     private bool WAPressed = false;
     private bool SDPressed = false;
@@ -52,6 +51,22 @@ public class DashScript : MonoBehaviour
         {
             WAPressed = false;
         }
+        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A))
+        {
+            SDPressed = true;
+        }
+        else
+        {
+            SDPressed = false;
+        }
+        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A))
+        {
+            SAPressed = true;
+        }
+        else
+        {
+            SAPressed = false;
+        }
     }
 
     void dash()
@@ -70,6 +85,18 @@ public class DashScript : MonoBehaviour
             else if (WAPressed & Input.GetKeyDown(KeyCode.Space) & hasDashed == false)
             {
                 direction = 6;
+                hasDashed = true;
+
+            }
+            else if (SDPressed & Input.GetKeyDown(KeyCode.Space) & hasDashed == false)
+            {
+                direction = 7;
+                hasDashed = true;
+
+            }
+            else if (SAPressed & Input.GetKeyDown(KeyCode.Space) & hasDashed == false)
+            {
+                direction = 8;
                 hasDashed = true;
 
             }
@@ -140,6 +167,18 @@ public class DashScript : MonoBehaviour
                 else if (direction == 6)
                 {
                     Vector3 movement = new Vector3(-dashSpeed, dashSpeed, 0);
+                    transform.position += movement * Time.deltaTime;
+
+                }
+                else if (direction == 7)
+                {
+                    Vector3 movement = new Vector3(dashSpeed, -dashSpeed, 0);
+                    transform.position += movement * Time.deltaTime;
+
+                }
+                else if (direction == 8)
+                {
+                    Vector3 movement = new Vector3(-dashSpeed, -dashSpeed, 0);
                     transform.position += movement * Time.deltaTime;
 
                 }

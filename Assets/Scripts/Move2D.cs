@@ -11,7 +11,7 @@ public class Move2D : MonoBehaviour
     public float runSpeed = 10f;
 
     public float fallMultiplier = 2.5f;
-
+    public bool isSwinging;
     private bool facingRight;
 
     // Update is called once per frame
