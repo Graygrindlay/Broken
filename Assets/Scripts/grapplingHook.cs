@@ -19,10 +19,10 @@ public class grapplingHook : MonoBehaviour
     public LayerMask mask;
 
     // Start is called before the first frame update
-    void Start()
-    {
-        joint.enabled = false;
-    }
+    //void Start()
+    //{
+        //joint.enabled = false;
+    //}
 
     // Update is called once per frame
     void Update()
@@ -40,7 +40,7 @@ public class grapplingHook : MonoBehaviour
             
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        //if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             targetPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             targetPos.z = 0;
@@ -50,9 +50,9 @@ public class grapplingHook : MonoBehaviour
      
         }
 
-        hit = Physics2D.Raycast(transform.position, targetPos - transform.position, maxDistance, mask);
+        //hit = Physics2D.Raycast(transform.position, targetPos - transform.position, maxDistance, mask);
 
-        if (hit.collider != null & hit.collider.gameObject.GetComponent<Rigidbody2D>() != null)
+        //if (hit.collider != null & hit.collider.gameObject.GetComponent<Rigidbody2D>() != null)
         {
             joint.enabled = true;
             joint.connectedBody = hit.collider.gameObject.GetComponent<Rigidbody2D>();
@@ -61,7 +61,7 @@ public class grapplingHook : MonoBehaviour
 
         }
 
-        if (Input.GetKeyUp(KeyCode.Mouse1))
+        //if (Input.GetKeyUp(KeyCode.Mouse1))
         {
 
             joint.enabled = false;
