@@ -49,6 +49,9 @@ TagManager:
   - name: Player
     uniqueID: 1000403751
     locked: 0
+  - name: Doors
+    uniqueID: 2708215637
+    locked: 0
   - name: Crosshair
     uniqueID: 83308857
     locked: 0

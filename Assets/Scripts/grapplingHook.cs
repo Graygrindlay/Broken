@@ -53,19 +53,9 @@ public class grapplingHook : MonoBehaviour
         //hit = Physics2D.Raycast(transform.position, targetPos - transform.position, maxDistance, mask);
 
         //if (hit.collider != null & hit.collider.gameObject.GetComponent<Rigidbody2D>() != null)
-        {
-            joint.enabled = true;
-            joint.connectedBody = hit.collider.gameObject.GetComponent<Rigidbody2D>();
-            joint.distance = Vector2.Distance(transform.position, hit.point);
+        
 
-
-        }
-
-        //if (Input.GetKeyUp(KeyCode.Mouse1))
-        {
-
-            joint.enabled = false;
-        }
+        
     }
 
     private void SetCrosshairPosition(float aimAngle)
