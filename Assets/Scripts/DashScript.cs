@@ -18,11 +18,12 @@ public class DashScript : MonoBehaviour
     private bool WAPressed = false;
     private bool SDPressed = false;
     private bool SAPressed = false;
+    public float thrust = 10;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         dashTime = startDashTime;
-            
+        
     
     
     
@@ -142,16 +143,20 @@ public class DashScript : MonoBehaviour
                 {
                     Vector3 movement = new Vector3(-dashSpeed, 0, 0);
                     transform.position += movement * Time.deltaTime;
+
+                    
                 } 
                 else if (direction == 2)
                 {
-                    Vector3 movement = new Vector3(dashSpeed, 0, 0);
-                    transform.position += movement * Time.deltaTime;
+                    //Vector3 movement = new Vector3(dashSpeed, 0, 0);
+                    //transform.position += movement * Time.deltaTime;
+                    rb.AddForce(transform.right * thrust, ForceMode2D.Impulse);
                 }
                 else if (direction == 3)
                 {
-                    Vector3 movement = new Vector3(0, dashSpeed, 0);
-                    transform.position += movement * Time.deltaTime;
+                    //Vector3 movement = new Vector3(0, dashSpeed, 0);
+                    //transform.position += movement * Time.deltaTime;
+                    rb.AddForce(transform.up * thrust, ForceMode2D.Impulse);
                 }
                 else if (direction == 4)
                 {

@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class grapplingHook : MonoBehaviour
+public class crossHair : MonoBehaviour
 {
 
     public SpriteRenderer crosshairSprite;
     public Transform crosshair;
-    private bool ropeAttached;
+    private bool ropeAttached = false;
     public Move2D playerMovement;
     public float cursorDistance = 2f;
     //Cursor handling ^

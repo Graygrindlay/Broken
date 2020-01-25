@@ -130,6 +130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 467256689}
   - component: {fileID: 467256690}
+  - component: {fileID: 467256691}
   m_Layer: 0
   m_Name: Collider
   m_TagString: Untagged
@@ -158,7 +159,7 @@ EdgeCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 467256688}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -180,6 +181,46 @@ EdgeCollider2D:
   - {x: -6.016971, y: -0.0024814606}
   - {x: -1.9655652, y: 0.017777681}
   - {x: -2.0015953, y: 1.0322237}
+--- !u!60 &467256691
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 467256688}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 15.718194, y: 2.0090694}
+      - {x: 9.333687, y: 2.79288}
+      - {x: -11.998894, y: 2.2973046}
+      - {x: -11.066581, y: -4.224328}
+      - {x: -10.9777, y: 0.9762596}
+      - {x: -6.0106816, y: 0.9937104}
+      - {x: -6.0032635, y: 0.040097713}
+      - {x: -2.0186481, y: -0.021968842}
+      - {x: -1.9902337, y: 1.0183564}
+      - {x: 4.0007744, y: 0.9796349}
+      - {x: 3.9921882, y: 0.0416044}
+      - {x: 8.006243, y: -0.0040307045}
+      - {x: 8.030368, y: 0.9895395}
+      - {x: 11.959671, y: 1.0117927}
+      - {x: 12.012008, y: -4.2706046}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,7 +349,7 @@ GameObject:
   - component: {fileID: 615806375}
   - component: {fileID: 615806376}
   m_Layer: 0
-  m_Name: Ground
+  m_Name: Ground_Collider
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -341,7 +382,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.49759388, y: -3.0834637}
+  m_Offset: {x: 0.49759388, y: -3.128683}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -352,7 +393,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 23.490866, y: 0.33968925}
+  m_Size: {x: 23.490866, y: 0.24925041}
   m_EdgeRadius: 0
 --- !u!1 &729684656
 GameObject:
@@ -756,6 +797,7 @@ MonoBehaviour:
   duration: 0.15
   magnitude: 0.4
   cameraShake: {fileID: 0}
+  thrust: 10
 --- !u!114 &888205003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -800,7 +842,7 @@ GameObject:
   - component: {fileID: 1121957453}
   - component: {fileID: 1121957452}
   m_Layer: 0
-  m_Name: DoorWays
+  m_Name: DoorWays_TileMap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
