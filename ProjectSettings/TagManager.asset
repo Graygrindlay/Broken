@@ -46,6 +46,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: MidGround
+    uniqueID: 2853317971
+    locked: 0
   - name: Player
     uniqueID: 1000403751
     locked: 0
