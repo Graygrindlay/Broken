@@ -141,10 +141,10 @@ public class DashScript : MonoBehaviour
                 dashTime -= Time.deltaTime;
                 if(direction == 1)
                 {
-                    Vector3 movement = new Vector3(-dashSpeed, 0, 0);
-                    transform.position += movement * Time.deltaTime;
+                    //Vector3 movement = new Vector3(-dashSpeed, 0, 0);
+                    //transform.position += movement * Time.deltaTime;
+                    rb.AddForce(-transform.right * thrust, ForceMode2D.Impulse);
 
-                    
                 } 
                 else if (direction == 2)
                 {
@@ -160,35 +160,35 @@ public class DashScript : MonoBehaviour
                 }
                 else if (direction == 4)
                 {
-                    Vector3 movement = new Vector3(0, -dashSpeed, 0);
-                    transform.position += movement * Time.deltaTime;
+                    //Vector3 movement = new Vector3(0, -dashSpeed, 0);
+                    //transform.position += movement * Time.deltaTime;
+                    rb.AddForce(-transform.up * thrust, ForceMode2D.Impulse);
                 }
-                else if (direction == 5)
-                {
-                    Vector3 movement = new Vector3(dashSpeed, dashSpeed, 0);
-                    transform.position += movement * Time.deltaTime;
 
+                
+                if (direction == 5) //WD
+                {
+                  rb.AddForce(transform.up * thrust, ForceMode2D.Impulse);
+                  rb.AddForce(transform.right * thrust, ForceMode2D.Impulse);
                 }
-                else if (direction == 6)
+                else if (direction == 6) //WA
                 {
-                    Vector3 movement = new Vector3(-dashSpeed, dashSpeed, 0);
-                    transform.position += movement * Time.deltaTime;
-
+                  rb.AddForce(transform.up * thrust, ForceMode2D.Impulse);
+                  rb.AddForce(-transform.right * thrust, ForceMode2D.Impulse);
                 }
-                else if (direction == 7)
+                else if (direction == 7) 
                 {
-                    Vector3 movement = new Vector3(dashSpeed, -dashSpeed, 0);
-                    transform.position += movement * Time.deltaTime;
-
+                  rb.AddForce(transform.up * thrust, ForceMode2D.Impulse);
+                  rb.AddForce(-transform.right * thrust, ForceMode2D.Impulse);
                 }
                 else if (direction == 8)
                 {
-                    Vector3 movement = new Vector3(-dashSpeed, -dashSpeed, 0);
-                    transform.position += movement * Time.deltaTime;
-
+                  rb.AddForce(-transform.up * thrust, ForceMode2D.Impulse);
+                  rb.AddForce(-transform.right * thrust, ForceMode2D.Impulse);
                 }
+                       
 
-
+                
             }
             
             

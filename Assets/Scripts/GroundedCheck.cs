@@ -12,6 +12,7 @@ public class GroundedCheck : MonoBehaviour
         if (collider.collider.tag == "Ground")
         {
             GroundCheck = true;
+            Debug.Log("grounded");
         }
 
     }
