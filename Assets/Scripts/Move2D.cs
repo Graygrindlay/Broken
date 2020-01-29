@@ -21,7 +21,7 @@ public class Move2D : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        facingRight = false;
+        facingRight = true;
 
     }
     void FixedUpdate()
