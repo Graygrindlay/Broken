@@ -4,23 +4,37 @@ using System.Collections.Generic;
 
 public class DashScript : MonoBehaviour
 {
-    private Rigidbody2D rb;
-    public float dashSpeed;
-    private float dashTime;
-    public float startDashTime;
-    private int direction;
-    private static bool GroundCheck;
-    public bool hasDashed;
+    public GameObject cameraShake;
     public float duration = .15f;
     public float magnitude = .4f;
-    public GameObject cameraShake;
+    
+    private Rigidbody2D rb;
+    
+    private float dashTime;
+    public float startDashTime;
+   
+    private static bool GroundCheck;
+    public bool hasDashed;
+    
+    private int direction;
+
     private bool WDPressed = false;
     private bool WAPressed = false;
     private bool SDPressed = false;
     private bool SAPressed = false;
+    
     public float thrust = 10;
+    
+    bool TD_Check;
+    public float TD_Thrust = 5;
+
+
+
+    
+    
     void Start()
     {
+        TD_Check = GetComponent<TopDown_Check>();
         rb = GetComponent<Rigidbody2D>();
         dashTime = startDashTime;
         
@@ -124,9 +138,6 @@ public class DashScript : MonoBehaviour
 
             }
 
-
-
-
         }
         else
         {
@@ -141,37 +152,27 @@ public class DashScript : MonoBehaviour
                 dashTime -= Time.deltaTime;
                 if(direction == 1)
                 {
-                    //Vector3 movement = new Vector3(-dashSpeed, 0, 0);
-                    //transform.position += movement * Time.deltaTime;
                     rb.AddForce(-transform.right * thrust, ForceMode2D.Impulse);
-
                 } 
                 else if (direction == 2)
                 {
-                    //Vector3 movement = new Vector3(dashSpeed, 0, 0);
-                    //transform.position += movement * Time.deltaTime;
                     rb.AddForce(transform.right * thrust, ForceMode2D.Impulse);
                 }
                 else if (direction == 3)
                 {
-                    //Vector3 movement = new Vector3(0, dashSpeed, 0);
-                    //transform.position += movement * Time.deltaTime;
                     rb.AddForce(transform.up * thrust, ForceMode2D.Impulse);
                 }
                 else if (direction == 4)
                 {
-                    //Vector3 movement = new Vector3(0, -dashSpeed, 0);
-                    //transform.position += movement * Time.deltaTime;
                     rb.AddForce(-transform.up * thrust, ForceMode2D.Impulse);
                 }
-
                 
-                if (direction == 5) //WD
+                if (direction == 5) 
                 {
                   rb.AddForce(transform.up * thrust, ForceMode2D.Impulse);
                   rb.AddForce(transform.right * thrust, ForceMode2D.Impulse);
                 }
-                else if (direction == 6) //WA
+                else if (direction == 6) 
                 {
                   rb.AddForce(transform.up * thrust, ForceMode2D.Impulse);
                   rb.AddForce(-transform.right * thrust, ForceMode2D.Impulse);
@@ -186,26 +187,42 @@ public class DashScript : MonoBehaviour
                   rb.AddForce(-transform.up * thrust, ForceMode2D.Impulse);
                   rb.AddForce(-transform.right * thrust, ForceMode2D.Impulse);
                 }
-                       
-
-                
             }
+        }
+        
+        if (GroundCheck == true)
+        {
+            hasDashed = false;
+          
+        }
+
+        if (TD_Check == true)
+        {
+            hasDashed = false;
+
+        }
+
+        if (TD_Check == true)
+        {
+            thrust = TD_Thrust;
+
+        }
+                
+    }
+
+
+
+
             
             
               
 
-        }
 
 
-        if (GroundCheck == true)
-        {
-            hasDashed = false;
             
 
 
-        }    
     
-    }
 
   
 

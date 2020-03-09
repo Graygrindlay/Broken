@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 
-public class Move2D : MonoBehaviour
+public class MoveTopDown : MonoBehaviour
 {
     public float tempMoveSpeed = 5f;
     public float moveSpeed = 5f;
@@ -26,23 +26,15 @@ public class Move2D : MonoBehaviour
     }
     void FixedUpdate()
     {
+        Vector3 movementHorizontal = new Vector3(Input.GetAxis("Horizontal"), 0, 0);
+
+        transform.position += movementHorizontal * Time.deltaTime * tempMoveSpeed;
+
         
+        Vector3 movementVertical = new Vector3(0 , Input.GetAxis("Vertical"), 0);
 
-        Vector3 movement = new Vector3(Input.GetAxis("Horizontal"),0 ,0);
+        transform.position += movementVertical * Time.deltaTime * tempMoveSpeed;
 
-        transform.position += movement * Time.deltaTime * tempMoveSpeed;
-
-        //if (Input.GetKey(KeyCode.LeftShift))
-        //{
-            //tempMoveSpeed = runSpeed;
-
-        //}
-
-        //if (Input.GetKeyUp(KeyCode.LeftShift))
-        //{
-            //tempMoveSpeed = moveSpeed;
-
-        //}
 
         if (rb.velocity.y < 0)
         {
@@ -52,6 +44,11 @@ public class Move2D : MonoBehaviour
 
         float horizontal = Input.GetAxis("Horizontal");
         Flip(horizontal);
+
+
+     
+
+
 
     }
 
@@ -70,5 +67,7 @@ public class Move2D : MonoBehaviour
         }
 
     }
+
+    
 
 }

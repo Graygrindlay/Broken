@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/TRASHHHH/Church_Room_Cross.unity
+    guid: 2daf43d2e9bae3343958c65a7638bc96
+  - enabled: 1
+    path: Assets/Scenes/TRASHHHH/Church_Room_TopDown.unity
+    guid: 61a9cdb7c8b28cf4185196a0e0c76f84
   m_configObjects: {}
