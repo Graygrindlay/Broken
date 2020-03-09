@@ -71,6 +71,6 @@ public class Move2D : MonoBehaviour
 
     }
 
-    //this is  not working
+    //this is not working
 
 }

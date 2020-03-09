@@ -26,8 +26,9 @@ public class TopDownSeed_Cross : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             tf.position = new Vector3(-69.6f, -2.19f, 0);
-            spriteRender.flipX = false;
-            //sGameObject.Find("Player").GetComponent<Move2D>().facingRight = false;
+            
+            
+            
 
         }
 

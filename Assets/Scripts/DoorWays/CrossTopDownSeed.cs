@@ -13,6 +13,7 @@ public class CrossTopDownSeed : MonoBehaviour
         //find best hentai don't mind me FBI
         tf = GameObject.Find("Player").GetComponent<Transform>();
         spriteRender = GameObject.Find("Player").GetComponent<SpriteRenderer>();
+        
     }
 
     // Update is called once per frame
@@ -28,6 +29,7 @@ public class CrossTopDownSeed : MonoBehaviour
             tf.position = new Vector3(-69.88f, -26.82f, 0);
             //GameObject.Find("Player").GetComponent<Move2D>().facingRight = false;
             //spriteRender.flipX = false;
+            GameObject.Find("Player").GetComponent<Transform>().theScale.x
         }
 
     }

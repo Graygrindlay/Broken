@@ -821,6 +821,7 @@ MonoBehaviour:
   runSpeed: 10
   fallMultiplier: 2.5
   isSwinging: 0
+  facingRight: 0
   dashSpeed: 10
 --- !u!50 &371937026
 Rigidbody2D:
@@ -840,7 +841,7 @@ Rigidbody2D:
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 0
+  m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &371937027

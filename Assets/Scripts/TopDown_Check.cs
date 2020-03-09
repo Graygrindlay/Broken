@@ -27,6 +27,7 @@ public class TopDown_Check : MonoBehaviour
             GameObject.Find("Player").GetComponent<MoveTopDown>().enabled = false;
             GameObject.Find("Player").GetComponent<Move2D>().enabled = true;
             GameObject.Find("Player").GetComponent<Rigidbody2D>().gravityScale = 1;
+            GameObject.Find("Player").GetComponent<Rigidbody2D>().gravity = new vector3(0, -1);
 
         }
         else if (TopDown = true)
